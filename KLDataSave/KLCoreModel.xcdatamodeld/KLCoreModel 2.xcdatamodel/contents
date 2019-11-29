@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="19A582a" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="Address" representedClassName="Address" syncable="YES" codeGenerationType="class">
+        <attribute name="city" optional="YES" attributeType="String"/>
+        <attribute name="country" optional="YES" attributeType="String"/>
+        <attribute name="number" optional="YES" transient="YES" attributeType="String"/>
+        <attribute name="row" attributeType="String"/>
+        <relationship name="objects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Userinfo" inverseName="addresses" inverseEntity="Userinfo"/>
+    </entity>
+    <entity name="Animal" representedClassName="Animal" parentEntity="Userinfo" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Contacts" representedClassName="Contacts" syncable="YES" codeGenerationType="class">
+        <attribute name="rClassName" optional="YES" attributeType="String"/>
+        <attribute name="rName" optional="YES" attributeType="String"/>
+        <attribute name="rTel" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="contackBook" inverseEntity="Person"/>
+    </entity>
+    <entity name="Person" representedClassName="Person" parentEntity="Userinfo" syncable="YES" codeGenerationType="class">
+        <attribute name="rId" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rWight" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="contackBook" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Contacts" inverseName="owner" inverseEntity="Contacts"/>
+    </entity>
+    <entity name="Userinfo" representedClassName="Userinfo" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="rAge" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rName" attributeType="String" defaultValueString=""/>
+        <attribute name="rSex" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="1" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="addresses" toMany="YES" deletionRule="Nullify" destinationEntity="Address" inverseName="objects" inverseEntity="Address"/>
+    </entity>
+    <elements>
+        <element name="Address" positionX="4.58203125" positionY="-120.0390625" width="128" height="118"/>
+        <element name="Animal" positionX="-108" positionY="18" width="128" height="58"/>
+        <element name="Contacts" positionX="-64.13671875" positionY="239.47265625" width="128" height="103"/>
+        <element name="Person" positionX="-235.9609375" positionY="58.5078125" width="128" height="88"/>
+        <element name="Userinfo" positionX="-205" positionY="-146.21484375" width="128" height="103"/>
+    </elements>
+</model>
